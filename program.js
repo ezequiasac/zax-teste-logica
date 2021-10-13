@@ -35,13 +35,14 @@ function realizarPedido(loja, motoboy) {
         console.log('Quanto vai ganhar?');
     }
     // Caso tente passar o motoboy 4 em alguma outra laja senão a loja 1
-    else if (motoboy === moto4 && loja !== loja1) {
-        console.log('Motoboy 4 só atende a loja 1');
+    else if (!motoboy.lojas.includes(loja)) {
+        console.log('O motoboy não atende essa loja');
     }
     else {
         return motoboy.entrega * loja.pedidos.length + loja.calcComissao();
     }
 }
+// Testando a função realizarPedidos
 console.log(realizarPedido(loja1, moto1));
-console.log(realizarPedido(loja2, moto2));
+console.log(realizarPedido(loja2, moto3));
 console.log(realizarPedido(loja3, moto5));
